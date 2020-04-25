@@ -4,19 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="lt.vu.mybatis.model.Team" alias="Team"/>
-        <typeAlias type="lt.vu.mybatis.model.Player" alias="Player"/>
+        <typeAlias type="lt.vu.mybatis.model.Producer" alias="Producer"/>
+        <typeAlias type="lt.vu.mybatis.model.Movie" alias="Movie"/>
+        <typeAlias type="lt.vu.mybatis.model.Actor" alias="Actor"/>
+        <typeAlias type="lt.vu.mybatis.model.MovieActor" alias="MovieActor"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="MANAGED"/>
             <dataSource type="JNDI">
-                <property name="data_source" value="PlayersDataSource"/>
+                <property name="data_source" value="MovieDataSource"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/TeamMapper.xml"/>
-        <mapper resource="mybatis.xml/PlayerMapper.xml"/>
+        <mapper resource="mybatis.xml/ProducerMapper.xml"/>
+        <mapper resource="mybatis.xml/MovieMapper.xml"/>
+        <mapper resource="mybatis.xml/CategoryMapper.xml"/>
+        <mapper resource="mybatis.xml/MovieCategoryMapper.xml"/>
     </mappers>
 </configuration>

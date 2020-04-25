@@ -47,6 +47,11 @@
             <artifactId>mybatis-cdi</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>8.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -58,7 +63,7 @@
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
                     <version>1.4.0</version>
                     <configuration>
-                        <contexts>PlayersDB</contexts>
+                        <contexts>MovieDB</contexts>
                         <verbose>true</verbose>
                     </configuration>
                     <executions>
