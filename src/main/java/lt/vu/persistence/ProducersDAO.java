@@ -22,6 +22,10 @@ public class ProducersDAO {
         em.persist(producer);
     }
 
+    public Producer update(Producer producer){
+        return em.merge(producer);
+    }
+
     public Producer findOne(Integer id){
         return em.find(Producer.class, id);
     }

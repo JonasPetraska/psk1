@@ -35,6 +35,10 @@ public class Producer implements Serializable {
     @Column(name = "LASTNAME")
     private String lastName;
 
-    @OneToMany(mappedBy = "producer")
+    @OneToMany(mappedBy = "producer", fetch = FetchType.LAZY)
     private List<Movie> movieList = new ArrayList<Movie>();
+
+    public String getName(){
+        return firstName + " " + lastName;
+    }
 }

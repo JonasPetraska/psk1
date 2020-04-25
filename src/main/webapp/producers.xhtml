@@ -11,24 +11,41 @@
 <h:body>
     <h1>All Producers</h1>
 
+    <p:dataTable value="#{producers.allProducers}" var="producer">
+        <p:column headerText="First name">
+            <h:link value="#{producer.firstName}" outcome="producerInfo?producerId=#{producer.id}" />
+        </p:column>
+        <p:column headerText="Last name">
+            <h:link value="#{producer.lastName}" outcome="producerInfo?producerId=#{producer.id}" />
+        </p:column>
+        <p:column headerText="Movies">
+            <ui:repeat var="movie" value="#{producer.movieList}">
+                <h:outputText value="#{movie.name.concat(' ')}"/>
+            </ui:repeat>
+        </p:column>
+    </p:dataTable>
+
+    <h2>Add a new producer to the list:</h2>
     <h:form>
-        <p:fieldset>
-            <p:dataTable value="#{producers.allProducers}" var="producer">
-                <p:column headerText="First name">
-                    <h:outputText value="#{producer.firstName}"/>
-                </p:column>
-                <p:column headerText="Last name">
-                    <h:outputText value="#{producer.lastName}"/>
-                </p:column>
-                <p:column headerText="Movies">
-                    <ui:repeat var="movie" value="#{producer.movieList}">
-                        <h:outputText value="#{movie.name.concat(' ')}"/>
-                    </ui:repeat>
-                </p:column>
-            </p:dataTable>
-        </p:fieldset>
-        <p:messages globalOnly="true"/>
+        <table>
+            <tr>
+                <td>
+                    <h:panelGrid columns="3">
+                        <p:outputLabel for="firstName" value="First name"/>
+                        <p:inputText id="firstName" value="#{producers.producerToCreate.firstName}"/>
+                        <p:message for="firstName"/>
+
+                        <p:outputLabel for="lastName" value="Last name"/>
+                        <p:inputText id="lastName" value="#{producers.producerToCreate.lastName}"/>
+                        <p:message for="lastName"/>
+                    </h:panelGrid>
+                </td>
+            </tr>
+        </table>
+        <h:commandButton value="Add" action="#{producers.createProducer}"/>
     </h:form>
+
+
     <h:commandButton value="Back" onclick="location.href='index.xhtml'"/>
 </h:body>
 </html>

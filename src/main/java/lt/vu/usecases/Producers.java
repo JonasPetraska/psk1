@@ -3,6 +3,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Producer;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.ProducersDAO;
 
 import javax.annotation.PostConstruct;
@@ -29,6 +30,7 @@ public class Producers {
     }
 
     @Transactional
+    @LoggedInvocation
     public String createProducer(){
         producersDAO.persist(producerToCreate);
         return "producers?faces-redirect=true";

@@ -36,6 +36,13 @@ public class Actor implements Serializable {
     @Column(name = "LASTNAME")
     private String lastName;
 
+    @Transient
+    private transient String name;
+
     @ManyToMany(mappedBy = "actorList")
     private List<Movie> movieList = new ArrayList<Movie>();
+
+    public String getName(){
+        return firstName + " " + lastName;
+    }
 }
