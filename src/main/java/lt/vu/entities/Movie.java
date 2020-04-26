@@ -28,11 +28,11 @@ public class Movie implements Serializable {
     private Integer id;
 
     @Size(max = 30)
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     private String name;
 
     @Size(max = 4)
-    @Column(name = "YEAR")
+    @Column(name = "YEAR", nullable = false)
     private String year;
 
     @JoinColumn(name = "PRODUCER_ID", referencedColumnName = "ID")

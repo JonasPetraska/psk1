@@ -29,11 +29,11 @@ public class Actor implements Serializable {
     private Integer id;
 
     @Size(max = 20)
-    @Column(name = "FIRSTNAME")
+    @Column(name = "FIRSTNAME", nullable = false)
     private String firstName;
 
     @Size(max = 20)
-    @Column(name = "LASTNAME")
+    @Column(name = "LASTNAME", nullable = false)
     private String lastName;
 
     @Transient

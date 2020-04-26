@@ -11,6 +11,8 @@
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="YEAR" jdbcType="VARCHAR" property="year" />
     <result column="PRODUCER_ID" jdbcType="INTEGER" property="producerId" />
+    <association property="producer"
+                 resultMap="lt.vu.mybatis.dao.ProducerMapper.BaseResultMap"/>
     <collection property="actorList" javaType="List" ofType="lt.vu.mybatis.model.Actor">
       <id property="id" column="ACTOR_ID"/>
       <result property="firstname" column="ACTOR_FIRSTNAME"/>
