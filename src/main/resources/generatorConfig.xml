@@ -16,8 +16,6 @@
         <sqlMapGenerator targetPackage="lt.vu.mybatis.xml" targetProject="MAVEN" />
         <javaClientGenerator type="XMLMAPPER" targetPackage="lt.vu.mybatis.dao" targetProject="MAVEN" />
 
-
-
         <table schema="public" tableName="producer">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
             <ignoreColumn column="opt_lock_version" />

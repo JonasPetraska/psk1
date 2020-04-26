@@ -3,6 +3,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.mybatis.dao.ActorMapper;
+import lt.vu.mybatis.dao.MovieActorMapper;
 import lt.vu.mybatis.dao.MovieMapper;
 import lt.vu.mybatis.model.Actor;
 import lt.vu.mybatis.model.Movie;
@@ -26,6 +27,9 @@ public class MovieInfoMyBatis {
 
     @Inject
     private ActorMapper actorMapper;
+
+    @Inject
+    private MovieActorMapper movieActorMapper;
 
     @Inject
     private ActorHelpers actorHelpers;
@@ -57,13 +61,13 @@ public class MovieInfoMyBatis {
                 List<Actor> found = actorMapper.selectByFirstNameAndLastName(actor.getFirstname(), actor.getLastname());
                 if(found.size() == 0) {
                     actorMapper.insert(actor);
+                    movieActorMapper.insert(actor.getId(), movie.getId());
                     actorsToSet.add(actor);
                 }else {
                     Actor act = found.get(0);
                     actorsToSet.add(act);
                 }
             }
-
             movie.setActorList(actorsToSet);
         }
 
