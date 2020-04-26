@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-    <title>TP first assignment - #{producerInfo.producer.firstName} #{producerInfo.producer.lastName}</title>
+    <title>TP first assignment - #{producerInfoMyBatis.producer.firstname} #{producerInfoMyBatis.producer.lastname} (My batis)</title>
 </h:head>
 <h:body>
     <h2>Update producer:</h2>
@@ -17,23 +17,23 @@
                 <td>
                     <h:panelGrid columns="3">
                         <p:outputLabel for="firstName" value="First name"/>
-                        <p:inputText id="firstName" value="#{producerInfo.producer.firstName}"/>
+                        <p:inputText id="firstName" value="#{producerInfoMyBatis.producer.firstname}"/>
                         <p:message for="firstName"/>
 
                         <p:outputLabel for="lastName" value="Last name"/>
-                        <p:inputText id="lastName" value="#{producerInfo.producer.lastName}"/>
+                        <p:inputText id="lastName" value="#{producerInfoMyBatis.producer.lastname}"/>
                         <p:message for="lastName"/>
                     </h:panelGrid>
                 </td>
             </tr>
         </table>
-        <h:commandButton value="Update" action="#{producerInfo.updateProducer}">
-            <f:param name="producerId" value="#{producerInfo.producer.id}" />
+        <h:commandButton value="Update" action="#{producerInfoMyBatis.updateProducer}">
+            <f:param name="producerId" value="#{producerInfoMyBatis.producer.id}" />
         </h:commandButton>
     </h:form>
 
-    <h1>#{producerInfo.producer.firstName} #{producerInfo.producer.lastName} movies</h1>
-    <p:dataTable value="#{producerInfo.producer.movieList}" var="movie">
+    <h1>#{producerInfoMyBatis.producer.firstname} #{producerInfoMyBatis.producer.lastname} movies</h1>
+    <p:dataTable value="#{producerInfoMyBatis.producer.movieList}" var="movie">
         <p:column headerText="Name">
             <h:link value="#{movie.name}" outcome="movieInfo?movieId=#{movie.id}" />
         </p:column>
@@ -49,27 +49,27 @@
                 <td>
                     <h:panelGrid columns="3">
                         <p:outputLabel for="name" value="Name"/>
-                        <p:inputText id="name" value="#{producerInfo.movieToCreate.name}"/>
+                        <p:inputText id="name" value="#{producerInfoMyBatis.movieToCreate.name}"/>
                         <p:message for="name"/>
 
                         <p:outputLabel for="year" value="Year"/>
-                        <p:inputText id="year" value="#{producerInfo.movieToCreate.year}"/>
+                        <p:inputText id="year" value="#{producerInfoMyBatis.movieToCreate.year}"/>
                         <p:message for="year"/>
 
                         <p:outputLabel for="actors" value="Actors (ex. Jonas Jonaitis,Petras Petraitis)"/>
-                        <p:inputTextarea id="actors" value="#{producerInfo.movieToCreateActors}"/>
+                        <p:inputTextarea id="actors" value="#{producerInfoMyBatis.movieToCreateActors}"/>
                         <p:message for="actors"/>
                     </h:panelGrid>
                 </td>
             </tr>
         </table>
-        <h:commandButton value="Add" action="#{producerInfo.createMovie}">
-            <f:param name="producerId" value="#{producerInfo.producer.id}" />
+        <h:commandButton value="Add" action="#{producerInfoMyBatis.createMovie}">
+            <f:param name="producerId" value="#{producerInfoMyBatis.producer.id}" />
         </h:commandButton>
     </h:form>
 
 
     <h:commandButton value="Back" onclick="location.href='producers.xhtml'"/>
-    <h:commandButton value="Back to index" onclick="location.href='index.xhtml'"/>
+    <h:commandButton value="Back to index" onclick="location.href='../index.xhtml'"/>
 </h:body>
 </html>

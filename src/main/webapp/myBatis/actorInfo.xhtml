@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-    <title>TP first assignment - #{actorInfo.actor.firstName} #{actorInfo.actor.lastName}</title>
+    <title>TP first assignment - #{actorInfoMyBatis.actor.firstname} #{actorInfoMyBatis.actor.lastname} (My batis)</title>
 </h:head>
 <h:body>
     <h2>Update actor:</h2>
@@ -17,23 +17,23 @@
                 <td>
                     <h:panelGrid columns="3">
                         <p:outputLabel for="firstName" value="First name"/>
-                        <p:inputText id="firstName" value="#{actorInfo.actor.firstName}"/>
+                        <p:inputText id="firstName" value="#{actorInfoMyBatis.actor.firstname}"/>
                         <p:message for="firstName"/>
 
                         <p:outputLabel for="lastName" value="Last name"/>
-                        <p:inputText id="lastName" value="#{actorInfo.actor.lastName}"/>
+                        <p:inputText id="lastName" value="#{actorInfoMyBatis.actor.lastname}"/>
                         <p:message for="lastName"/>
                     </h:panelGrid>
                 </td>
             </tr>
         </table>
-        <h:commandButton value="Update" action="#{actorInfo.updateActor}">
-            <f:param name="actorId" value="#{actorInfo.actor.id}" />
+        <h:commandButton value="Update" action="#{actorInfoMyBatis.updateActor}">
+            <f:param name="actorId" value="#{actorInfoMyBatis.actor.id}" />
         </h:commandButton>
     </h:form>
 
-    <h1>#{actorInfo.actor.firstName} #{actorInfo.actor.lastName} movies</h1>
-    <p:dataTable value="#{actorInfo.actor.movieList}" var="movie">
+    <h1>#{actorInfoMyBatis.actor.firstname} #{actorInfoMyBatis.actor.lastname} movies</h1>
+    <p:dataTable value="#{actorInfoMyBatis.actor.movieList}" var="movie">
         <p:column headerText="Name">
             <h:link value="#{movie.name}" outcome="movieInfo?movieId=#{movie.id}" />
         </p:column>
@@ -43,6 +43,6 @@
     </p:dataTable>
 
     <h:commandButton value="Back" onclick="history.go(-1);return false;"/>
-    <h:commandButton value="Back to index" onclick="location.href='index.xhtml'"/>
+    <h:commandButton value="Back to index" onclick="location.href='../index.xhtml'"/>
 </h:body>
 </html>

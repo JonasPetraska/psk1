@@ -7,20 +7,19 @@
         <typeAlias type="lt.vu.mybatis.model.Producer" alias="Producer"/>
         <typeAlias type="lt.vu.mybatis.model.Movie" alias="Movie"/>
         <typeAlias type="lt.vu.mybatis.model.Actor" alias="Actor"/>
-        <typeAlias type="lt.vu.mybatis.model.MovieActor" alias="MovieActor"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="MANAGED"/>
             <dataSource type="JNDI">
-                <property name="data_source" value="MovieDataSource"/>
+                <property name="data_source" value="MoviesDataSource"/>
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
         <mapper resource="mybatis.xml/ProducerMapper.xml"/>
         <mapper resource="mybatis.xml/MovieMapper.xml"/>
-        <mapper resource="mybatis.xml/CategoryMapper.xml"/>
-        <mapper resource="mybatis.xml/MovieCategoryMapper.xml"/>
+        <mapper resource="mybatis.xml/ActorMapper.xml"/>
     </mappers>
 </configuration>

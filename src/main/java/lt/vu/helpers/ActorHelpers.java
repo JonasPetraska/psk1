@@ -29,4 +29,24 @@ public class ActorHelpers {
 
         return actorList;
     }
+
+    public List<lt.vu.mybatis.model.Actor> getActorsFromStringMyBatis(String string, lt.vu.mybatis.model.Movie forMovie){
+        List<lt.vu.mybatis.model.Actor> actorList = new ArrayList<lt.vu.mybatis.model.Actor>();
+        String[] actors = string.trim().split(",");
+        for(String actor : actors){
+            String[] actorFNLN = actor.split(" ");
+            String actorFN = actorFNLN[0];
+            String actorLN = actorFNLN[1];
+
+            lt.vu.mybatis.model.Actor actorToCreate = new lt.vu.mybatis.model.Actor();
+            if(forMovie != null)
+                actorToCreate.getMovieList().add(forMovie);
+
+            actorToCreate.setFirstname(actorFN);
+            actorToCreate.setLastname(actorLN);
+            actorList.add(actorToCreate);
+        }
+
+        return actorList;
+    }
 }

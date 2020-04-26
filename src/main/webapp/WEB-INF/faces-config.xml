@@ -16,9 +16,21 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-action>#{producersMyBatis.createProducer}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myBatis/producers.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{producerInfo.createMovie}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/producerInfo.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{producerInfoMyBatis.createMovie}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myBatis/producerInfo.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
@@ -28,15 +40,33 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-action>#{producerInfoMyBatis.updateProducer}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myBatis/producerInfo.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{movieInfo.updateMovie}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/movieInfo.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-action>#{movieInfoMyBatis.updateMovie}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myBatis/movieInfo.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{actorInfo.updateActor}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/actorInfo.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{actorInfoMyBatis.updateActor}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myBatis/actorInfo.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

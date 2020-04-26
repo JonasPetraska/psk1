@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-    <title>TP first assignment - #{movieInfo.movie.name} #{movieInfo.movie.year}</title>
+    <title>TP first assignment - #{movieInfoMyBatis.movie.name} #{movieInfoMyBatis.movie.year} (My batis)</title>
 </h:head>
 <h:body>
     <h2>Update the movie:</h2>
@@ -17,36 +17,36 @@
                 <td>
                     <h:panelGrid columns="3">
                         <p:outputLabel for="name" value="Name"/>
-                        <p:inputText id="name" value="#{movieInfo.movie.name}"/>
+                        <p:inputText id="name" value="#{movieInfoMyBatis.movie.name}"/>
                         <p:message for="name"/>
 
                         <p:outputLabel for="year" value="Year"/>
-                        <p:inputText id="year" value="#{movieInfo.movie.year}"/>
+                        <p:inputText id="year" value="#{movieInfoMyBatis.movie.year}"/>
                         <p:message for="year"/>
 
                         <p:outputLabel for="actors" value="Actors (ex. Jonas Jonaitis,Petras Petraitis)"/>
-                        <p:inputTextarea id="actors" value="#{movieInfo.actorsToCreate}"/>
+                        <p:inputTextarea id="actors" value="#{movieInfoMyBatis.actorsToCreate}"/>
                         <p:message for="actors"/>
                     </h:panelGrid>
                 </td>
             </tr>
         </table>
-        <h:commandButton value="Update" action="#{movieInfo.updateMovie}">
-            <f:param name="movieId" value="#{movieInfo.movie.id}" />
+        <h:commandButton value="Update" action="#{movieInfoMyBatis.updateMovie}">
+            <f:param name="movieId" value="#{movieInfoMyBatis.movie.id}" />
         </h:commandButton>
     </h:form>
 
-    <h1>#{movieInfo.movie.name} #{movieInfo.movie.year} actors</h1>
-    <p:dataTable value="#{movieInfo.movie.actorList}" var="actor">
+    <h1>#{movieInfoMyBatis.movie.name} #{movieInfoMyBatis.movie.year} actors</h1>
+    <p:dataTable value="#{movieInfoMyBatis.movie.actorList}" var="actor">
         <p:column headerText="First name">
-            <h:link value="#{actor.firstName}" outcome="actorInfo?actorId=#{actor.id}" />
+            <h:link value="#{actor.firstname}" outcome="actorInfo?actorId=#{actor.id}" />
         </p:column>
         <p:column headerText="Last name">
-            <h:link value="#{actor.lastName}" outcome="actorInfo?actorId=#{actor.id}" />
+            <h:link value="#{actor.lastname}" outcome="actorInfo?actorId=#{actor.id}" />
         </p:column>
     </p:dataTable>
 
     <h:commandButton value="Back" onclick="history.go(-1);return false;"/>
-    <h:commandButton value="Back to index" onclick="location.href='index.xhtml'"/>
+    <h:commandButton value="Back to index" onclick="location.href='../index.xhtml'"/>
 </h:body>
 </html>

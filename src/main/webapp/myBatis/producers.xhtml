@@ -6,17 +6,17 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-    <title>TP first assignment - Producers</title>
+    <title>TP first assignment - Producers (My Batis)</title>
 </h:head>
 <h:body>
     <h1>All Producers</h1>
 
-    <p:dataTable value="#{producers.allProducers}" var="producer">
+    <p:dataTable value="#{producersMyBatis.allProducers}" var="producer">
         <p:column headerText="First name">
-            <h:link value="#{producer.firstName}" outcome="producerInfo?producerId=#{producer.id}" />
+            <h:link value="#{producer.firstname}" outcome="producerInfo?producerId=#{producer.id}" />
         </p:column>
         <p:column headerText="Last name">
-            <h:link value="#{producer.lastName}" outcome="producerInfo?producerId=#{producer.id}" />
+            <h:link value="#{producer.lastname}" outcome="producerInfo?producerId=#{producer.id}" />
         </p:column>
         <p:column headerText="Movies">
             <ui:repeat var="movie" value="#{producer.movieList}">
@@ -32,20 +32,20 @@
                 <td>
                     <h:panelGrid columns="3">
                         <p:outputLabel for="firstName" value="First name"/>
-                        <p:inputText id="firstName" value="#{producers.producerToCreate.firstName}"/>
+                        <p:inputText id="firstName" value="#{producersMyBatis.producerToCreate.firstname}"/>
                         <p:message for="firstName"/>
 
                         <p:outputLabel for="lastName" value="Last name"/>
-                        <p:inputText id="lastName" value="#{producers.producerToCreate.lastName}"/>
+                        <p:inputText id="lastName" value="#{producersMyBatis.producerToCreate.lastname}"/>
                         <p:message for="lastName"/>
                     </h:panelGrid>
                 </td>
             </tr>
         </table>
-        <h:commandButton value="Add" action="#{producers.createProducer}"/>
+        <h:commandButton value="Add" action="#{producersMyBatis.createProducer}"/>
     </h:form>
 
 
-    <h:commandButton value="Back" onclick="location.href='index.xhtml'"/>
+    <h:commandButton value="Back" onclick="location.href='../index.xhtml'"/>
 </h:body>
 </html>
