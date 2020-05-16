@@ -1,12 +1,13 @@
 # PSK
 PSK laboratorinis darbas. Jonas Petraška. VU MIF, 2020
 
+# Instructions
 Project is based on Maven, thus import project to IntelliJ IDEA by:
 
 File -> Open... -> pick pom.xml file.
 
 
-Application Server configuration
+# Application Server configuration
 
 WildFly
 
