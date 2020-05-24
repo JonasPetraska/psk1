@@ -12,4 +12,7 @@
     <alternatives>
         <class>lt.vu.services.HighScaleMovieRatingGenerator</class>
     </alternatives>
+    <decorators>
+        <class>lt.vu.services.PerfectMovieRatingDecorator</class>
+    </decorators>
 </beans>

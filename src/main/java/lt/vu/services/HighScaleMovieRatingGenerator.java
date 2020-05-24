@@ -16,5 +16,7 @@ public class HighScaleMovieRatingGenerator implements MovieRatingGenerator {
         }
         Integer generatedMovieRating = new Random().nextInt(100-1) + 1;
         return generatedMovieRating;
+        //Used to show decorator working
+        //return 100;
     }
 }
