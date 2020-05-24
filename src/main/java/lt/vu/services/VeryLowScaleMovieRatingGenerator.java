@@ -1,20 +1,18 @@
 package lt.vu.services;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Specializes;
-import java.io.Serializable;
 import java.util.Random;
 
-@Alternative
+@Specializes
 @ApplicationScoped
-public class HighScaleMovieRatingGenerator implements MovieRatingGenerator {
+public class VeryLowScaleMovieRatingGenerator extends LowScaleMovieRatingGenerator {
     public Integer generateMovieRating() {
         try {
-            Thread.sleep(5000); // Simulate intensive work
+            Thread.sleep(1000); // Simulate intensive work
         } catch (InterruptedException e) {
         }
-        Integer generatedMovieRating = new Random().nextInt(100-1) + 1;
+        Integer generatedMovieRating = new Random().nextInt(5-1) + 1;
         return generatedMovieRating;
     }
 }
