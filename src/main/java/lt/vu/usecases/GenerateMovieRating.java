@@ -1,6 +1,8 @@
 package lt.vu.usecases;
 
 import lt.vu.interceptors.LoggedInvocation;
+import lt.vu.services.HighScaleMovieRating;
+import lt.vu.services.LowScaleMovieRatingGenerator;
 import lt.vu.services.MovieRatingGenerator;
 
 import javax.enterprise.context.SessionScoped;
