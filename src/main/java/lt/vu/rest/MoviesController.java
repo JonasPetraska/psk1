@@ -4,6 +4,7 @@ import lombok.Setter;
 import lombok.Getter;
 import lt.vu.entities.Movie;
 import lt.vu.entities.Producer;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.MoviesDAO;
 import lt.vu.persistence.ProducersDAO;
 import lt.vu.rest.contracts.MovieDTO;
@@ -33,6 +34,7 @@ public class MoviesController {
     private ProducersDAO producersDAO;
 
     @GET
+    @LoggedInvocation
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll() {
         List<Movie> movies = moviesDAO.getAllMovies();
@@ -56,6 +58,7 @@ public class MoviesController {
 
     @Path("/{id}")
     @GET
+    @LoggedInvocation
     //If XML is needed
     //@Produces(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_JSON)
@@ -76,6 +79,7 @@ public class MoviesController {
 
     @Path("/{id}")
     @PUT
+    @LoggedInvocation
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response update(
@@ -113,6 +117,7 @@ public class MoviesController {
     }
 
     @POST
+    @LoggedInvocation
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response create(MovieDTO dto) {
