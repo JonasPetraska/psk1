@@ -10,13 +10,14 @@
         <id column="ID" jdbcType="INTEGER" property="id" />
         <result column="NAME" jdbcType="VARCHAR" property="name" />
         <result column="YEAR" jdbcType="VARCHAR" property="year" />
+        <result column="RATING" jdbcType="INTEGER" property="rating" />
     </resultMap>
     <insert id="insert" useGeneratedKeys="true" keyColumn="ID">
         insert into PUBLIC.MOVIE_ACTOR (MOVIE_ID, ACTOR_ID)
         values (#{movieId,jdbcType=INTEGER}, #{actorId,jdbcType=INTEGER})
     </insert>
     <select id="selectActorMovies" parameterType="java.lang.Integer" resultMap="MovieResultMap">
-        select m.ID, m.NAME, m.YEAR
+        select m.ID, m.NAME, m.YEAR, m.RATING
         from PUBLIC.ACTOR as a
         INNER JOIN PUBLIC.MOVIE_ACTOR as ma
         ON a.ID = ma.ACTOR_ID

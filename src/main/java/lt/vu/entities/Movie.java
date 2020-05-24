@@ -35,6 +35,9 @@ public class Movie implements Serializable {
     @Column(name = "YEAR", nullable = false)
     private String year;
 
+    @Column(name = "RATING", nullable = false)
+    private int rating;
+
     @JoinColumn(name = "PRODUCER_ID", referencedColumnName = "ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Producer producer;

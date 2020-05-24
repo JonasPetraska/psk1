@@ -40,6 +40,9 @@
         <p:column headerText="Year">
             <h:outputText value="#{movie.year}"/>
         </p:column>
+        <p:column headerText="Rating">
+            <h:outputText value="#{movie.rating}"/>
+        </p:column>
     </p:dataTable>
 
     <h:commandButton value="Back" onclick="history.go(-1);return false;"/>

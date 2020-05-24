@@ -30,6 +30,7 @@
         <h:commandButton value="Update" action="#{producerInfo.updateProducer}">
             <f:param name="producerId" value="#{producerInfo.producer.id}" />
         </h:commandButton>
+        <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
     </h:form>
 
     <h1>#{producerInfo.producer.firstName} #{producerInfo.producer.lastName} movies</h1>
@@ -39,6 +40,9 @@
         </p:column>
         <p:column headerText="Year">
             <h:outputText value="#{movie.year}"/>
+        </p:column>
+        <p:column headerText="Rating">
+            <h:outputText value="#{movie.rating}"/>
         </p:column>
     </p:dataTable>
 

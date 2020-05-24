@@ -35,6 +35,11 @@ public class Producer implements Serializable {
     @Column(name = "LASTNAME", nullable = false)
     private String lastName;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
+
     @OneToMany(mappedBy = "producer", fetch = FetchType.LAZY)
     private List<Movie> movieList = new ArrayList<Movie>();
 

@@ -24,6 +24,10 @@
                         <p:inputText id="year" value="#{movieInfoMyBatis.movie.year}"/>
                         <p:message for="year"/>
 
+                        <p:outputLabel for="rating" value="Rating"/>
+                        <p:inputText id="rating" value="#{movieInfoMyBatis.movie.rating}"/>
+                        <p:message for="rating"/>
+
                         <p:outputLabel for="actors" value="Actors (ex. Jonas Jonaitis,Petras Petraitis)"/>
                         <p:inputTextarea id="actors" value="#{movieInfoMyBatis.actorsToCreate}"/>
                         <p:message for="actors"/>
