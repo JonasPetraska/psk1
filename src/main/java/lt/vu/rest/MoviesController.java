@@ -56,6 +56,8 @@ public class MoviesController {
 
     @Path("/{id}")
     @GET
+    //If XML is needed
+    //@Produces(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") final Integer id) {
         Movie movie = moviesDAO.findOne(id);
