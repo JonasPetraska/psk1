@@ -62,8 +62,15 @@ public class ProducerInfo implements Serializable {
             producersDAO.update(producer);
             return "producerInfo?producerId=" + producer.getId() + "&faces-redirect=true";
         }catch(OptimisticLockException ex){
+            //handleOptimisticLockException();
             return "producerInfo?producerId=" + producer.getId() + "&faces-redirect=true&error=optimistic-lock-exception";
         }
+    }
+
+    //example of handling code with transaction (always require new)
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
+    public void handleOptimisticLockException(){
+
     }
 
     @Transactional
